@@ -6,24 +6,31 @@ import rigoImage from "../../img/rigo-baby.jpg";
 //create your first component
 const Home = () => {
 	const [roja, setRoja] = useState("");
+    
 	const [naranja, setNaranja] = useState("");
+
 	const [verde, setVerde] = useState("");
+
 	const [oculto, setOculto] =useState("oculto");
+
 	const encendidoRojo = () => {
 		setRoja(roja == "activaRoja" ? "" : "activaRoja")
 		setNaranja("")
 		setVerde("")
 	}
+
 	const encendidoNaranja = () => {
 		setNaranja(naranja == "activaNaranja" ? "" : "activaNaranja")
 		setRoja("")
 		setVerde("")
 	}
+
 	const encendidoVerde = () => {
 		setVerde(verde == "activaVerde" ? "" : "activaVerde")
 		setRoja("")
 		setNaranja("")
 	}
+
 	const intercambio = () => {
 		if (roja == "" && naranja == "" && verde == "") {
 			setRoja("activaRoja")
@@ -40,12 +47,14 @@ const Home = () => {
 			setVerde("")
 		}
 	}
+
 	const hazOculto = () => {
 		setOculto(oculto == "oculto" ? "" : "oculto")
 		setRoja("")
 		setNaranja("")
 		setVerde("")
 	}
+
 	return (
 		<div>
 			<div>
