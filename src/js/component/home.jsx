@@ -8,22 +8,35 @@ const Home = () => {
 	const [roja, setRoja] = useState("");
 	const [naranja, setNaranja] = useState("");
 	const [verde, setVerde] = useState("");
+	const [luzMorada, setLuzMorada] = useState("");
+
 	const [oculto, setOculto] =useState("oculto");
+
 	const encendidoRojo = () => {
 		setRoja(roja == "activaRoja" ? "" : "activaRoja")
 		setNaranja("")
 		setVerde("")
 	}
+
 	const encendidoNaranja = () => {
 		setNaranja(naranja == "activaNaranja" ? "" : "activaNaranja")
 		setRoja("")
 		setVerde("")
 	}
+
 	const encendidoVerde = () => {
 		setVerde(verde == "activaVerde" ? "" : "activaVerde")
 		setRoja("")
 		setNaranja("")
 	}
+
+	const encendidoMorado = () => {
+		setLuzMorada(luzMorada == "activaMorado" ? "" : "activaMorado")
+		setRoja("")
+		setNaranja("")
+		setVerde("")
+	}
+
 	const intercambio = () => {
 		if (roja == "" && naranja == "" && verde == "") {
 			setRoja("activaRoja")
@@ -37,15 +50,22 @@ const Home = () => {
 			setVerde("activaVerde")
 		}
 		if (verde == "activaVerde") {
+			setLuzMorada("activaMorado")
 			setVerde("")
 		}
+		if (luzMorada == "activaMorado"){
+			setLuzMorada("")
+
+		}
 	}
+
 	const hazOculto = () => {
 		setOculto(oculto == "oculto" ? "" : "oculto")
 		setRoja("")
 		setNaranja("")
 		setVerde("")
 	}
+
 	return (
 		<div>
 			<div>
@@ -54,7 +74,7 @@ const Home = () => {
 					<div className={`luzRoja ${roja}`}><button className="luzRoja" onClick={() => { encendidoRojo() }}></button></div>
 					<div className={`luzAmarilla ${naranja}`}><button className="luzAmarilla" onClick={() => { encendidoNaranja() }}></button></div>
 					<div className={`luzVerde ${verde}`}><button className="luzVerde" onClick={() => { encendidoVerde() }}></button></div>
-					<div className={`${oculto} morado`}><button className="morado"></button></div>
+					<div className={`${oculto} ${luzMorada} morado`}><button className="morado" onClick={()=>encendidoMorado()}></button></div>
 				</div>
 			</div>
 			<div className="botonCambio">
